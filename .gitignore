@@ -1,0 +1,35 @@
+# Gradle
+.gradle/
+build/
+out/
+classes/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.project
+.classpath
+
+# Eclipse / IntelliJ
+bin/
+target/
+
+# Forge / MC
+run/
+runs/
+logs/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Local de testes
+*.log
+
+# Heap dumps / crash
+*.hprof
+hs_err_pid*.log

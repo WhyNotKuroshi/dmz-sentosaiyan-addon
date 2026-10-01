@@ -1,0 +1,50 @@
+{
+  "race.dragonminez.sentosaiyan": "§eSento Saiyan",
+  "race.dragonminez.sentosaiyan.desc": "Saiyans of Universe 1 touched by a primal mutation. Their fury rises even without the moon — but the Sento learned to tame the inner beast through therapy, not chains.",
+  
+  "technique.sentosaiyanaddon.sound_breaker": "Sound Breaker",
+  "technique.sentosaiyanaddon.trigger_wave": "Trigger Wave",
+  "technique.sentosaiyanaddon.flex": "Flex",
+
+  "sentosaiyanaddon.ability.sound_breaker.not_sento": "§cOnly Sento Saiyans can use this ability.",
+  "sentosaiyanaddon.ability.trigger_wave.not_sento_mutant": "§cOnly Sento Saiyan Mutants can use this ability.",
+  "sentosaiyanaddon.ability.no_ki": "§cNot enough Ki.",
+  "sentosaiyanaddon.ability.sound_breaker.cast": "§b[Sound Breaker] §7%s target(s) stunned.",
+  "sentosaiyanaddon.ability.trigger_wave.cast": "§b[Trigger Wave] §7%s Sento(s) transformed into Oozaru.",
+  "sentosaiyanaddon.ability.trigger_wave.forced": "§4[Trigger Wave] §cYou were forced into Oozaru!",
+  "sentosaiyanaddon.ability.cooldown": "I can't use this right now...§cCooldown: %s s",
+  "sentosaiyanaddon.ability.flex.abuse_warning": "§6[Flex] §eI should be careful... one more and my muscles might give out.",
+  "sentosaiyanaddon.ability.flex.abuse_ko": "§4[Flex] §cI pushed it too far. I can't move!",
+  "sentosaiyanaddon.ability.no_stamina": "§cNot enough stamina.",
+  "sentosaiyanaddon.ability.flex.not_sento": "§cOnly Sento Saiyans can use this ability.",
+  "sentosaiyanaddon.ability.flex.sleeping": "§cToo exhausted. I need to rest.",
+  "sentosaiyanaddon.ability.flex.activate": "§a[Flex] §7Muscles tensed!",
+  "sentosaiyanaddon.ability.flex.deactivate": "§7[Flex] §7Muscles rested.",
+  "sentosaiyanaddon.ability.flex.numblock": "§4[Flex] §cBody giving out... %s more and I'm done.",
+  "sentosaiyanaddon.ability.flex.sleep": "§4[Flex] §4Body gave out. Need a rest...",
+  "sentosaiyanaddon.ability.flex.hot_spring_progress": "§b[Flex] §7Recovering... §f%s s",
+  "sentosaiyanaddon.ability.flex.recovered": "§b[Flex] §7The pain fades, I feel renewed!",
+  "sentosaiyanaddon.ability.flex.slept": "§b[Flex] §7Slept well. §f%s §7numblock(s) recovered.",
+  "sentosaiyanaddon.ability.flex.activate_uses": "§a[Flex] §7Power surges! §8(%s uses left)",
+  "sentosaiyanaddon.command.reset_flex.success": "[Flex] State reset.",
+
+  "race.dragonminez.sentosaiyan.group.supersento": "Super Saiyan",
+  "race.dragonminez.sentosaiyan.form.supersento.supersaiyan": "Super Saiyan",
+  "race.dragonminez.sentosaiyan.form.supersento.supersaiyan2": "Super Saiyan 2",
+  "race.dragonminez.sentosaiyan.form.supersento.supersaiyan3": "Super Saiyan 3",
+
+  "race.dragonminez.sentosaiyan.group.sentosaiyanoozaru": "Oozaru",
+  "race.dragonminez.sentosaiyan.form.sentosaiyanoozaru.oozaru": "Oozaru",
+  "race.dragonminez.sentosaiyan.form.sentosaiyanoozaru.goldenoozaru": "Golden Oozaru",
+  "race.dragonminez.sentosaiyan.form.sentosaiyanoozaru.supersaiyan4": "Super Saiyan 4",
+
+  "race.dragonminez.sentosaiyan.group.legendaryforms": "Legendary Forms",
+  "race.dragonminez.sentosaiyan.form.legendaryforms.ikari": "Ikari",
+  "race.dragonminez.sentosaiyan.form.legendaryforms.ssjhybrid": "SS Hybrid",
+  "race.dragonminez.sentosaiyan.form.legendaryforms.ssjfullpower": "SS Full Power",
+  "race.dragonminez.sentosaiyan.form.legendaryforms.supersaiyan4": "Legendary SS 4",
+
+  "sentosaiyanaddon.command.reset_config.success": "[Sento] Configs reinstalled from %s. Leave and re-enter the world (or restart the game) to apply.",
+  "sentosaiyanaddon.source.base": "DragonMine Z",
+  "sentosaiyanaddon.source.revamp": "DragonMine Z Overhaul"
+}

@@ -1,0 +1,26 @@
+{
+  "required": true,
+  "package": "com.sentosaiyanaddon.dmz.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "sentosaiyanaddon.refmap.json",
+  "mixins": [
+    "CharacterRenderLogicKeyMixin",
+    "DMZHairLayerOozaruMixin",
+    "DMZPlayerModelMixin",
+    "DMZSkinLayerFaceMixin",
+    "DMZSkinLayerGlowEyesMixin",
+    "DMZSkinLayerHairMixin",
+    "DMZSkinLayerSsj4FaceMixin",
+    "SentoStrikeHandlerMixin",
+    "SkinGathererProviderMixin",
+    "StatsDataFlexMixin",
+    "TransformationsHelperMoonMixin"
+  ],
+  "client": [
+    "KiSenseAuraThroughWallsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8.5"
+}

@@ -1,0 +1,57 @@
+{
+  "configVersion": "2.1.3",
+  "raceName": "sentosaiyan",
+  "hasGender": true,
+  "useVanillaSkin": false,
+  "customModel": "sentosaiyan",
+  "isLayered": true,
+  "headBones": [
+    "hair"
+  ],
+  "racialSkill": "saiyanrevamp",
+  "hasSaiyanTail": true,
+  "auraType": "kakarot",
+  "defaultModelScaling": [
+    0.9375,
+    0.9375,
+    0.9375
+  ],
+  "defaultBodyType": 0,
+  "defaultHairType": 13,
+  "defaultEyesType": 0,
+  "defaultNoseType": 0,
+  "defaultMouthType": 0,
+  "defaultTattooType": 0,
+  "defaultBodyColor": "#9A7C58",
+  "defaultBodyColor2": "#DCCC8E",
+  "defaultBodyColor3": "",
+  "defaultHairColor": "#FFFFFF",
+  "defaultEye1Color": "#E2B943",
+  "defaultEye2Color": "#E2B943",
+  "defaultAuraColor": "#73F6D1",
+  "formSkillsCosts": {
+    "legendaryforms": {
+      "buyFromMaster": false,
+      "prices": [
+        -1,
+        -1,
+        -1,
+        104000
+     ]
+    },
+    "godforms": {
+      "buyFromMaster": false,
+      "prices": []
+    },
+    "superforms": {
+      "buyFromMaster": false,
+      "prices": [
+        42000,
+        52000,
+        65000,
+        78000,
+        104000
+      ]
+    }
+  }
+}

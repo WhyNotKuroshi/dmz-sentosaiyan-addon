@@ -1,0 +1,45 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="GPL-3.0"
+issueTrackerURL="https://github.com/WhyNotKuroshi/dmz-sentosaiyan-addon/issues"
+
+[[mods]]
+modId="sentosaiyanaddon"
+version="${file.jarVersion}"
+displayName="DragonMineZ: Sento Saiyan Race"
+logoFile="logo.png"
+authors="WhyNotKuroshi"
+description='''
+Adds the Sento Saiyan race to DragonMineZ. Primal Saiyans from Universe 1
+with white hair, red face markings, and a tail.
+
+Features:
+- Oozaru, Golden Oozaru, SSJ4 variants, Legendary Forms
+- Flex: sacrifice stamina for power (with counter)
+- Sound Breaker: short roar that stuns nearby targets
+- Trigger Wave: forces nearby Sentos into Oozaru
+
+Requires DragonMineZ 2.1.3.
+Optional compatibility with DMZ Overhaul (Revamp).
+'''
+
+[[dependencies.sentosaiyanaddon]]
+modId="forge"
+mandatory=true
+versionRange="[47.4.20,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.sentosaiyanaddon]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.sentosaiyanaddon]]
+modId="dragonminez"
+mandatory=true
+versionRange="[2.1.3,2.2)"
+ordering="AFTER"
+side="BOTH"

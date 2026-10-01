@@ -1,0 +1,51 @@
+{
+  "race.dragonminez.sentosaiyan": "§eSaiyajin de Sento",
+  "race.dragonminez.sentosaiyan.desc": "Saiyajins mutantes do Universo 1, sua fúria caminha mesmo sem a lua — mas os Sento aprenderam a domar a besta interior pela terapia, não por correntes.",
+
+  "technique.sentosaiyanaddon.sound_breaker": "Sound Breaker",
+  "technique.sentosaiyanaddon.trigger_wave": "Trigger Wave",
+  "technique.sentosaiyanaddon.flex": "Flex",
+
+  "sentosaiyanaddon.ability.sound_breaker.not_sento": "§cApenas Saiyajin de Sento podem usar esta habilidade.",
+  "sentosaiyanaddon.ability.trigger_wave.not_sento_mutant": "§cApenas Saiyajin de Sento que são mutantes podem usar esta habilidade.",
+  "sentosaiyanaddon.ability.no_ki": "§cKi insuficiente.",
+  "sentosaiyanaddon.ability.sound_breaker.cast": "§b[Sound Breaker] §7%s alvo(s) atordoado(s).",
+  "sentosaiyanaddon.ability.trigger_wave.cast": "§b[Trigger Wave] §7%s Sento(s) transformado(s) em Oozaru.",
+  "sentosaiyanaddon.ability.trigger_wave.forced": "§4[Trigger Wave] §cVocê foi forçado a virar Oozaru!",
+  "sentosaiyanaddon.ability.cooldown": "Não posso usar isso agora...§cCooldown: %s s",
+  "sentosaiyanaddon.ability.flex.abuse_warning": "§6[Flex] §eDevo tomar cuidado... mais um e meus músculos podem travar.",
+  "sentosaiyanaddon.ability.flex.abuse_ko": "§4[Flex] §cExagerei no uso do Flex. Não consigo me mover!",
+  "sentosaiyanaddon.ability.no_stamina": "§cStamina insuficiente.",
+  "sentosaiyanaddon.ability.flex.not_sento": "§cApenas Saiyajins de Sento podem usar isso.",
+  "sentosaiyanaddon.ability.flex.sleeping": "§cExausto demais. Preciso descansar.",
+  "sentosaiyanaddon.ability.flex.activate": "§a[Flex] §7Músculos tensionados!",
+  "sentosaiyanaddon.ability.flex.deactivate": "§7[Flex] §7Músculos relaxados.",
+  "sentosaiyanaddon.ability.flex.numblock": "§4[Flex] §cCorpo cedendo... mais %s e não aguento.",
+  "sentosaiyanaddon.ability.flex.sleep": "§4[Flex] §4Meu corpo cedeu. Preciso descansar...",
+  "sentosaiyanaddon.ability.flex.hot_spring_progress": "§b[Flex] §7Recuperando... §f%s s",
+  "sentosaiyanaddon.ability.flex.recovered": "§b[Flex] §7A dor sumiu, me sinto renovado!",
+  "sentosaiyanaddon.ability.flex.slept": "§b[Flex] §7Dormi bem. §f%s §7numblock(s) recuperados.",
+  "sentosaiyanaddon.ability.flex.activate_uses": "§a[Flex] §7Poder à tona! §8(%s usos restantes)",
+  "sentosaiyanaddon.command.reset_flex.success": "[Flex] Estado resetado.",
+
+  "race.dragonminez.sentosaiyan.group.supersento": "Super Saiyajin",
+  "race.dragonminez.sentosaiyan.form.supersento.supersaiyan": "Super Saiyajin",
+  "race.dragonminez.sentosaiyan.form.supersento.supersaiyan2": "SSJ2",
+  "race.dragonminez.sentosaiyan.form.supersento.supersaiyan3": "SSJ3",
+  
+  "race.dragonminez.sentosaiyan.group.sentosaiyanoozaru": "Oozaru",
+  "race.dragonminez.sentosaiyan.form.sentosaiyanoozaru.oozaru": "Oozaru",
+  "race.dragonminez.sentosaiyan.form.sentosaiyanoozaru.goldenoozaru": "Oozaru Dourado",
+  "race.dragonminez.sentosaiyan.form.sentosaiyanoozaru.supersaiyan4": "SSJ4",
+
+  "race.dragonminez.sentosaiyan.group.legendaryforms": "Legendary Forms",
+  "race.dragonminez.sentosaiyan.form.legendaryforms.ikari": "Ikari",
+  "race.dragonminez.sentosaiyan.form.legendaryforms.ssjhybrid": "SSJ Hybrid",
+  "race.dragonminez.sentosaiyan.form.legendaryforms.ssjfullpower": "SSJFPower",
+  "race.dragonminez.sentosaiyan.form.legendaryforms.supersaiyan4": "LSSJ4",
+
+  "mod.sentosaiyanaddon": "Saiyajin de Sento",
+  "sentosaiyanaddon.command.reset_config.success": "[Sento] Configs reinstaladas a partir de: %s. Saia e reentre no mundo (ou reinicie o jogo) para aplicar.",
+  "sentosaiyanaddon.source.base": "DragonMine Z",
+  "sentosaiyanaddon.source.revamp": "DragonMine Z Overhaul"
+}
