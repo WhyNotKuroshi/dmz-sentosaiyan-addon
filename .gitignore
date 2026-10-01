@@ -33,3 +33,6 @@ Thumbs.db
 # Heap dumps / crash
 *.hprof
 hs_err_pid*.log
+# Deps locais
+libs/*.jar
+
