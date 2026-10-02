@@ -13,7 +13,7 @@ public final class SentoEffects {
     public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS,
             "sentosaiyanaddon");
 
-    public static final RegistryObject<MobEffect> FLEX = EFFECTS.register("sento_flex",
+    public static final RegistryObject<MobEffect> FLEX = EFFECTS.register("sentosaiyan_flex",
             () -> new SentoFlexEffect()
                     .addAttributeModifier(Attributes.ATTACK_DAMAGE,
                             "A1B2C3D4-E5F6-7890-ABCD-EF1234567890",

@@ -26,6 +26,7 @@ public class SkinGathererProviderMixin {
                                     float partialTick,
                                     BiConsumer<ResourceLocation, float[]> consumer,
                                     CallbackInfo ci) {
+        if (ci.isCancelled()) return;
         Character character = stats.getCharacter();
         if (!character.getRaceName().equalsIgnoreCase("sentosaiyan"))
             return;

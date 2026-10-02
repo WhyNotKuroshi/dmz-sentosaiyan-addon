@@ -13,6 +13,7 @@ public class StatsDataFlexMixin {
 
     @Inject(method = "getMeleeDamage", at = @At("RETURN"), cancellable = true, remap = false)
     private void sentosaiyan$flexMeleeBonus(CallbackInfoReturnable<Double> cir) {
+        if (cir.isCancelled()) return;
         StatsData self = (StatsData) (Object) this;
         if (self.getPlayer() == null) return;
         if (!self.getPlayer().hasEffect(SentoEffects.FLEX.get())) return;
@@ -21,6 +22,7 @@ public class StatsDataFlexMixin {
 
     @Inject(method = "getMaxMeleeDamage", at = @At("RETURN"), cancellable = true, remap = false)
     private void sentosaiyan$flexMaxMeleeBonus(CallbackInfoReturnable<Double> cir) {
+        if (cir.isCancelled()) return;
         StatsData self = (StatsData) (Object) this;
         if (self.getPlayer() == null) return;
         if (!self.getPlayer().hasEffect(SentoEffects.FLEX.get())) return;

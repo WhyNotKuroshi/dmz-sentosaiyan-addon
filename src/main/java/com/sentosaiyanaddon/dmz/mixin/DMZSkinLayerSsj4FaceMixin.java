@@ -2,6 +2,8 @@ package com.sentosaiyanaddon.dmz.mixin;
 
 import com.dragonminez.client.render.layer.DMZSkinLayer;
 import com.dragonminez.common.stats.character.Character;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -10,7 +12,6 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 
@@ -75,13 +76,13 @@ public abstract class DMZSkinLayerSsj4FaceMixin {
         return com.sentosaiyanaddon.dmz.util.SentoModelRegistry.resolveFaceKey(faceKey);
     }
 
-    @Redirect(method = "renderFace", at = @At(value = "INVOKE", target = "Lcom/dragonminez/common/stats/character/Character;getBodyType()I"), remap = false)
-    private int sentosaiyan$bypassBodyTypeZeroReturn(Character character) {
-        int bodyType = character.getBodyType();
+    @WrapOperation(method = "renderFace", at = @At(value = "INVOKE", target = "Lcom/dragonminez/common/stats/character/Character;getBodyType()I"), remap = false)
+    private int sentosaiyan$bypassBodyTypeZeroReturn(Character character, Operation<Integer> original) {
+        int bodyType = original.call(character);
         if (sentosaiyan$isSentoSSJ4(character)) {
             return bodyType == 0 ? 1 : bodyType;
         }
-        return bodyType; // outras racas passam intactas, nao vai dar ruim nao eu acho
+        return bodyType;
     }
 
     @Inject(method = "renderCustomFace", at = @At("TAIL"), remap = false)
@@ -111,7 +112,8 @@ public abstract class DMZSkinLayerSsj4FaceMixin {
                 pt, pl, po, alpha);
     }
 
-    // AVISO: Isso aqui checa se e Sento + SSJ4, sem isso o olho nao funciona do jeito esperado (com a borda)
+    // AVISO: Isso aqui checa se e Sento + SSJ4, sem isso o olho nao funciona do
+    // jeito esperado (com a borda)
     @Unique
     private static boolean sentosaiyan$isSentoSSJ4(Character character) {
         if (character == null)

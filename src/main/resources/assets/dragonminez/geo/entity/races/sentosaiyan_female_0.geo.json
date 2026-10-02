@@ -11,21 +11,22 @@
 				"visible_bounds_offset": [0, 2.25, 0]
 			},
 			"bones": [
-				{
-					"name": "root",
-					"pivot": [0, 0, 0]
-				},
-				{
-					"name": "waist",
-					"parent": "root",
-					"pivot": [0, 12, 0]
-				},
+				{"name": "root", "pivot": [0, 0, 0]},
+				{"name": "waist", "parent": "root", "pivot": [0, 12, 0]},
 				{
 					"name": "head",
 					"parent": "waist",
 					"pivot": [0, 24, 0],
 					"cubes": [
 						{"origin": [-4, 24, -4], "size": [8, 8, 8], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "head_layer",
+					"parent": "head",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4, 24, -4], "size": [8, 8, 8], "inflate": 0.25, "uv": [0, 32]}
 					]
 				},
 				{
@@ -288,9 +289,7 @@
 					"name": "right_hand_item",
 					"parent": "right_arm",
 					"pivot": [-6, 14, 0],
-					"locators": {
-						"locator": [-6, 14, 0]
-					}
+					"locators": {"locator": [-6, 14, 0]}
 				},
 				{
 					"name": "armorRightArm",
@@ -316,7 +315,7 @@
 					"parent": "right_arm",
 					"pivot": [-4.75, 22, 0],
 					"cubes": [
-						{"origin": [-7, 12, -1.5], "size": [3, 12, 3], "uv": [41, 33]}
+						{"origin": [-7, 12, -1.5], "size": [3, 12, 3], "inflate": 0.25, "uv": [41, 33]}
 					]
 				},
 				{
@@ -342,9 +341,7 @@
 					"name": "left_hand_item",
 					"parent": "left_arm",
 					"pivot": [6, 14, 0],
-					"locators": {
-						"locator2": [6, 14, 0]
-					}
+					"locators": {"locator2": [6, 14, 0]}
 				},
 				{
 					"name": "armorLeftArm",
@@ -370,7 +367,7 @@
 					"parent": "left_arm",
 					"pivot": [4.75, 22, 0],
 					"cubes": [
-						{"origin": [4, 12, -1.5], "size": [3, 12, 3], "uv": [49, 49]}
+						{"origin": [4, 12, -1.5], "size": [3, 12, 3], "inflate": 0.25, "uv": [49, 49]}
 					]
 				},
 				{
@@ -435,7 +432,7 @@
 					"parent": "right_leg",
 					"pivot": [-1.9, 12, 0],
 					"cubes": [
-						{"origin": [-3.9, 0, -1.9], "size": [4, 12, 3.8], "uv": [2, 34]}
+						{"origin": [-3.9, 0, -1.9], "size": [4, 12, 3.8], "inflate": 0.25, "uv": [2, 34]}
 					]
 				},
 				{
@@ -500,7 +497,7 @@
 					"parent": "left_leg",
 					"pivot": [1.9, 12, 0],
 					"cubes": [
-						{"origin": [-0.1, 0, -1.9], "size": [4, 12, 3.8], "uv": [2, 49]}
+						{"origin": [-0.1, 0, -1.9], "size": [4, 12, 3.8], "inflate": 0.25, "uv": [2, 49]}
 					]
 				}
 			]

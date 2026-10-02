@@ -11,6 +11,7 @@ public class CharacterRenderLogicKeyMixin {
 
     @Inject(method = "getRenderLogicKey", at = @At("RETURN"), cancellable = true, remap = false)
     private void sentosaiyan$forceOozaruLogicKey(CallbackInfoReturnable<String> cir) {
+        if (cir.isCancelled()) return;
         Character self = (Character) (Object) this;
         if (!sentosaiyan$isSentoOozaru(self)) return;
 
@@ -21,6 +22,7 @@ public class CharacterRenderLogicKeyMixin {
 
     @Inject(method = "isOozaruCached", at = @At("RETURN"), cancellable = true, remap = false)
     private void sentosaiyan$forceOozaruCached(CallbackInfoReturnable<Boolean> cir) {
+        if (cir.isCancelled()) return;
         if (Boolean.TRUE.equals(cir.getReturnValue())) return;
 
         Character self = (Character) (Object) this;

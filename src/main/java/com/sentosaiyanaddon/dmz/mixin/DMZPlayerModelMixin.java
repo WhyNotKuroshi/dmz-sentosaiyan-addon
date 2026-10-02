@@ -16,6 +16,7 @@ public class DMZPlayerModelMixin {
             int bodyType, String customRaceGender,
             CallbackInfoReturnable<ResourceLocation> cir) {
 
+        if (cir.isCancelled()) return;
         if (modelName == null) return;
 
         // Oozaru Sento

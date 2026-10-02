@@ -28,6 +28,7 @@ public class DMZHairLayerOozaruMixin {
             return;
         LazyOptional<StatsData> statsCap = StatsProvider.get(StatsCapability.INSTANCE, (Entity) animatable);
         StatsData stats = statsCap.orElse(new StatsData((Player) animatable));
+        if (ci.isCancelled()) return;
         Character character = stats.getCharacter();
         if (character == null)
             return;

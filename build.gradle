@@ -64,6 +64,10 @@ repositories {
         name = 'GeckoLib'
         url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
     }
+    maven {
+        name = 'MixinExtras'
+        url = 'https://maven.llamalad7.dev/'
+    }
 }
 
 dependencies {
@@ -72,6 +76,11 @@ dependencies {
     compileOnly fg.deobf('software.bernie.geckolib:geckolib-forge-1.20.1:4.4.9')
     
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
+    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.5.5"))
+    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.5.5")) {
+        jarJar.ranged(it, "[0.5.5,)")
+    }
 }
 
 jar {

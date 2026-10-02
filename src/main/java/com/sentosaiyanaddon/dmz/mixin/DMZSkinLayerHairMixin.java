@@ -24,6 +24,7 @@ public class DMZSkinLayerHairMixin {
             MultiBufferSource bufferSource, AbstractClientPlayer player, StatsData stats,
             float partialTick, int packedLight, int packedOverlay, float alpha,
             CallbackInfo ci) {
+        if (ci.isCancelled()) return;
         if (stats == null) return;
         Character character = stats.getCharacter();
         if (character == null) return;

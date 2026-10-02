@@ -22,6 +22,7 @@ public class TransformationsHelperMoonMixin {
     @Inject(method = "shouldAutoChargeOozaru", at = @At("HEAD"), cancellable = true, remap = false)
     private static void sentosaiyan$allowOozaru(Player player, StatsData statsData,
                                                  CallbackInfoReturnable<Boolean> cir) {
+        if (cir.isCancelled()) return;
         if (player == null || statsData == null) return;
         if (statsData.getCharacter() == null) return;
         if (!"sentosaiyan".equalsIgnoreCase(statsData.getCharacter().getRaceName())) return;

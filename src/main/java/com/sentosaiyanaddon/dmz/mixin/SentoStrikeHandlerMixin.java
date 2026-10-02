@@ -20,6 +20,7 @@ public class SentoStrikeHandlerMixin {
 
     @Inject(method = "requestStrike", at = @At("HEAD"), cancellable = true, remap = false)
     private static void sentosaiyan$handleSentoStrikes(ServerPlayer player, int targetId, CallbackInfo ci) {
+        if (ci.isCancelled()) return;
         if (player == null)
             return;
 

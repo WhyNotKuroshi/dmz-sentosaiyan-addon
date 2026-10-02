@@ -21,6 +21,7 @@ public class DMZSkinLayerFaceMixin {
             MultiBufferSource bufferSource, AbstractClientPlayer player, StatsData stats,
             float partialTick, int packedLight, int packedOverlay, float alpha,
             CallbackInfo ci) {
+        if (ci.isCancelled()) return;
         Character character = stats.getCharacter();
         if (!"sentosaiyan".equalsIgnoreCase(character.getRaceName())) return;
         String form = character.getActiveForm();
