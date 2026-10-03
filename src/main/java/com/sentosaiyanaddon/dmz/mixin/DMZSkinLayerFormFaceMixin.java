@@ -18,18 +18,21 @@ import software.bernie.geckolib.cache.object.BakedGeoModel;
 import java.lang.reflect.Method;
 
 @Mixin(value = DMZSkinLayer.class, remap = false)
-public abstract class DMZSkinLayerSsj4FaceMixin {
+public abstract class DMZSkinLayerFormFaceMixin {
 
     /*
-     * Cor da borda vermelha SSJ4 (RGB 0-1)
-     * Equivalente ao hex #D11A11
-     * 
-     * A cor usava bodyColor2 do form (padrao DMZ pra SSJ4 eyes)
+     * cor da borda ssj4 (RGB 0-1)
+     * equivalente ao hex #D11A11
      */
-
-    // Cor da borda agora e fixa (vermelho tradicional)
     @Unique
     private static final float[] SENTO_SSJ4_EYE_BORDER_COLOR = new float[] { 0.82F, 0.10F, 0.07F };
+
+    /*
+     * cor da borda ssj full power (RGB 0-1)
+     * branco #FFFFFF
+     */
+    @Unique
+    private static final float[] SENTO_SSJFP_EYE_BORDER_COLOR = new float[] { 1.0F, 1.0F, 1.0F };
 
     @Unique
     private static final Method sentosaiyan$renderColoredLayer;
@@ -85,35 +88,36 @@ public abstract class DMZSkinLayerSsj4FaceMixin {
         return bodyType;
     }
 
-    @Inject(method = "renderCustomFace", at = @At("TAIL"), remap = false)
-    private void sentosaiyan$renderSsj4EyesBorder(
-            BakedGeoModel model, PoseStack poseStack, AbstractClientPlayer animatable,
-            MultiBufferSource bufferSource, Character character,
-            String faceKey, String race,
-            float[] eye1, float[] eye2, float[] skin, float[] hair,
-            float pt, int pl, int po, float alpha,
-            CallbackInfo ci) {
+@Inject(method = "renderCustomFace", at = @At("TAIL"), remap = false)
+private void sentosaiyan$renderFormEyesBorder(
+        BakedGeoModel model, PoseStack poseStack, AbstractClientPlayer animatable,
+        MultiBufferSource bufferSource, Character character,
+        String faceKey, String race,
+        float[] eye1, float[] eye2, float[] skin, float[] hair,
+        float pt, int pl, int po, float alpha,
+        CallbackInfo ci) {
 
-        if (!"sentosaiyan".equalsIgnoreCase(race))
-            return;
+    if (!"sentosaiyan".equalsIgnoreCase(race))
+        return;
 
-        if (!sentosaiyan$isSentoSSJ4(character))
-            return;
+    // padrao: vermelho em todas as formas
+    float[] borderColor = SENTO_SSJ4_EYE_BORDER_COLOR;
 
-        // Pega o eyesType do personagem
-        int eyesType = character.getEyesType();
-
-        // Path da textura da borda do olho
-        String path = "textures/entity/races/sentosaiyan/faces/ssj4_eyes_" + eyesType + ".png";
-
-        sentosaiyan$callRenderColoredLayer(
-                model, poseStack, animatable, bufferSource,
-                path, SENTO_SSJ4_EYE_BORDER_COLOR,
-                pt, pl, po, alpha);
+    // excecao: branco no ssj full power
+    if (sentosaiyan$isSentoSSJFullpower(character)) {
+        borderColor = SENTO_SSJFP_EYE_BORDER_COLOR;
     }
 
-    // AVISO: Isso aqui checa se e Sento + SSJ4, sem isso o olho nao funciona do
-    // jeito esperado (com a borda)
+    int eyesType = character.getEyesType();
+    String path = "textures/entity/races/sentosaiyan/faces/sentospecialform_eyes_" + eyesType + ".png";
+
+    sentosaiyan$callRenderColoredLayer(
+            model, poseStack, animatable, bufferSource,
+            path, borderColor,
+            pt, pl, po, alpha);
+}
+
+    // verifica se e sento + ssj4
     @Unique
     private static boolean sentosaiyan$isSentoSSJ4(Character character) {
         if (character == null)
@@ -126,5 +130,20 @@ public abstract class DMZSkinLayerSsj4FaceMixin {
             return false;
         String lower = form.toLowerCase();
         return lower.contains("supersaiyan4") || lower.contains("ssj4");
+    }
+
+    // verifica se e sento + ssj full power
+    @Unique
+    private static boolean sentosaiyan$isSentoSSJFullpower(Character character) {
+        if (character == null)
+            return false;
+        String race = character.getRaceName();
+        if (race == null || !"sentosaiyan".equalsIgnoreCase(race))
+            return false;
+        String form = character.getActiveForm();
+        if (form == null)
+            return false;
+        String lower = form.toLowerCase();
+        return lower.contains("ssjfullpower");
     }
 }
