@@ -38,7 +38,7 @@ public class SentoSaiyanAddon {
                                 ModList.get().isLoaded("oculus") ? "yes — polygon offset active" : "no");
 
                 LOGGER.info("[Sento] NOEA detected: {}",
-                                ModList.get().isLoaded("NoeaBosses") ? "yes — Be careful, I haven't created a compatibility patch for this mod yet, so issues may occur." : "no");
+                                ModList.get().isLoaded("NoeaBosses-") ? "yes — Be careful, I haven't created a compatibility patch for this mod yet, so issues may occur." : "no");
 
                 LOGGER.info("[Sento] Generations detected: {}",
                                 ModList.get().isLoaded("dmzgenerations") ? "yes — known z-fighting bug" : "no");

@@ -29,20 +29,20 @@
   "sentosaiyanaddon.command.reset_flex.success": "[Flex] State reset.",
 
   "race.dragonminez.sentosaiyan.group.supersento": "Super Saiyan",
-  "race.dragonminez.sentosaiyan.form.supersento.supersaiyan": "Super Saiyan",
-  "race.dragonminez.sentosaiyan.form.supersento.supersaiyan2": "Super Saiyan 2",
-  "race.dragonminez.sentosaiyan.form.supersento.supersaiyan3": "Super Saiyan 3",
+  "race.dragonminez.sentosaiyan.form.supersento.supersaiyan": "SSJ",
+  "race.dragonminez.sentosaiyan.form.supersento.supersaiyan2": "SSJ 2",
+  "race.dragonminez.sentosaiyan.form.supersento.supersaiyan3": "SSJ 3",
 
   "race.dragonminez.sentosaiyan.group.sentosaiyanoozaru": "Oozaru",
   "race.dragonminez.sentosaiyan.form.sentosaiyanoozaru.oozaru": "Oozaru",
   "race.dragonminez.sentosaiyan.form.sentosaiyanoozaru.goldenoozaru": "Golden Oozaru",
-  "race.dragonminez.sentosaiyan.form.sentosaiyanoozaru.supersaiyan4": "Super Saiyan 4",
+  "race.dragonminez.sentosaiyan.form.sentosaiyanoozaru.supersaiyan4": "SSJ 4",
 
   "race.dragonminez.sentosaiyan.group.legendaryforms": "Legendary Forms",
   "race.dragonminez.sentosaiyan.form.legendaryforms.ikari": "Ikari",
-  "race.dragonminez.sentosaiyan.form.legendaryforms.ssjhybrid": "SS Hybrid",
-  "race.dragonminez.sentosaiyan.form.legendaryforms.ssjfullpower": "SS Full Power",
-  "race.dragonminez.sentosaiyan.form.legendaryforms.supersaiyan4": "Legendary SS 4",
+  "race.dragonminez.sentosaiyan.form.legendaryforms.ssjhybrid": "SSJ Hybrid",
+  "race.dragonminez.sentosaiyan.form.legendaryforms.ssjfullpower": "SSJ Full Power",
+  "race.dragonminez.sentosaiyan.form.legendaryforms.supersaiyan4": "SSJ 4",
 
   "sentosaiyanaddon.command.reset_config.success": "[Sento] Configs reinstalled from %s. Leave and re-enter the world (or restart the game) to apply.",
   "sentosaiyanaddon.source.base": "DragonMine Z",

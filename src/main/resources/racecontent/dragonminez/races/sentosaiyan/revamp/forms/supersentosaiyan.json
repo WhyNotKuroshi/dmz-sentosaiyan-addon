@@ -67,7 +67,7 @@
         "ultimate.beast"
       ],
       "shareMasteryWith": [
-        "supersentosaiyan.supersaiyan2"
+        "supersento.supersaiyan2"
       ],
       "shareMasteryMultiplier": 0.5,
       "outlineShader": {
@@ -132,7 +132,7 @@
       "passiveMasteryEveryFiveSeconds": 0.006,
       "maxCostMultiplier": 0.75,
       "maxStatsMultiplier": 1.0,
-      "formRequisite": "supersentosaiyan.supersaiyan",
+      "formRequisite": "supersento.supersaiyan",
       "formRequisiteType": "all",
       "unlockOnMastery": 25.0,
       "stackOnMastery": 25.0,
@@ -208,7 +208,7 @@
       "passiveMasteryEveryFiveSeconds": 0.006,
       "maxCostMultiplier": 0.75,
       "maxStatsMultiplier": 1.0,
-      "formRequisite": "supersentosaiyan.supersaiyan2",
+      "formRequisite": "supersento.supersaiyan2",
       "formRequisiteType": "all",
       "unlockOnMastery": 25.0,
       "stackOnMastery": 25.0,

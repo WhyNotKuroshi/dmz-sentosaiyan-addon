@@ -13,7 +13,6 @@ public class SentoMixinPlugin implements IMixinConfigPlugin {
         MixinExtrasBootstrap.init();
     }
 
-    // ... outros métodos da interface podem retornar null ou vazio ...
     @Override public String getRefMapperConfig() { return null; }
     @Override public boolean shouldApplyMixin(String targetClassName, String mixinClassName) { return true; }
     @Override public void acceptTargets(Set<String> myTargets, Set<String> otherTargets) {}
