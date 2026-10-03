@@ -15,7 +15,7 @@ apply plugin: 'org.spongepowered.mixin'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.0.1'
+version = '1.0.2'
 group = 'com.sentosaiyanaddon'
 base { archivesName = 'dmzsentosaiyan-addon' } 
 
@@ -89,9 +89,9 @@ jar {
         attributes([
                 "Specification-Title"   : "sentosaiyanaddon",
                 "Specification-Vendor"  : "WhyNotKuroshi",
-                "Specification-Version" : "1.0.1",
+                "Specification-Version" : "1.0.2",
                 "Implementation-Title"  : project.name,
-                "Implementation-Version": "1.0.1",
+                "Implementation-Version": "1.0.2",
                 "Implementation-Vendor" : "WhyNotKuroshi",
                 "MixinConfigs"          : "sentosaiyanaddon.mixins.json"
         ])
