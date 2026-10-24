@@ -1,10 +1,13 @@
 package com.sentosaiyanaddon.dmz.ability;
 
+import com.sentosaiyanaddon.dmz.config.SentoConfig;
+import com.sentosaiyanaddon.dmz.util.SentoUtils;
+
 import com.dragonminez.common.init.MainEffects;
 import com.dragonminez.common.stats.StatsCapability;
 import com.dragonminez.common.stats.StatsData;
 import com.dragonminez.common.stats.StatsProvider;
-import com.sentosaiyanaddon.dmz.config.SentoConfig;
+
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -12,6 +15,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
@@ -27,7 +31,7 @@ public final class SentoAbilities {
     private static final String CD_TRIGGER_WAVE = "TechniqueCooldown_sento_trigger_wave";
 
     public static boolean castSoundBreaker(ServerPlayer player) {
-        if (!isSento(player)) {
+        if (!SentoUtils.isSento(player)) {
             player.displayClientMessage(
                     Component.translatable("sentosaiyanaddon.ability.sound_breaker.not_sento"), true);
             return false;
@@ -89,7 +93,7 @@ public final class SentoAbilities {
     }
 
     public static boolean castTriggerWave(ServerPlayer player) {
-        if (!isSentoMutant(player)) {
+        if (!SentoUtils.isSentoMutant(player)) {
             player.displayClientMessage(
                     Component.translatable("sentosaiyanaddon.ability.trigger_wave.not_sento_mutant"), true);
             return false;
@@ -139,7 +143,7 @@ public final class SentoAbilities {
         for (ServerPlayer target : targets) {
             if (target == player)
                 continue;
-            if (!isSento(target))
+            if (!SentoUtils.isSento(target))
                 continue;
             if (isAlreadyOozaru(target))
                 continue;
@@ -150,21 +154,6 @@ public final class SentoAbilities {
                 SentoConfig.TRIGGER_WAVE_COOLDOWN_TICKS.get());
 
         return true;
-    }
-
-    private static boolean isSento(ServerPlayer player) {
-        StatsData data = StatsProvider.get(StatsCapability.INSTANCE, player).orElse(null);
-        if (data == null || data.getCharacter() == null)
-            return false;
-        String race = data.getCharacter().getRaceName();
-        return race != null && "sentosaiyan".equalsIgnoreCase(race);
-    }
-
-    private static boolean isSentoMutant(ServerPlayer player) {
-        if (!isSento(player))
-            return false;
-        StatsData data = StatsProvider.get(StatsCapability.INSTANCE, player).orElse(null);
-        return data != null && data.getEffects() != null && data.getEffects().hasEffect("mutant");
     }
 
     private static boolean isAlreadyOozaru(ServerPlayer player) {
@@ -207,7 +196,7 @@ public final class SentoAbilities {
 
     private static boolean canBeAffected(LivingEntity target) {
         if (target instanceof ServerPlayer tp) {
-            if (isSento(tp))
+            if (SentoUtils.isSento(tp))
                 return false;
         }
         return true;
@@ -215,9 +204,9 @@ public final class SentoAbilities {
 
     private static void playDmzSound(ServerPlayer player, String soundName, float volume, float pitch) {
         SoundEvent sound = ForgeRegistries.SOUND_EVENTS.getValue(
-                new ResourceLocation("dragonminez", soundName));
+                ResourceLocation.fromNamespaceAndPath("dragonminez", soundName));
         if (sound == null) {
-            sound = net.minecraft.sounds.SoundEvents.ENDER_DRAGON_GROWL;
+            sound = SoundEvents.ENDER_DRAGON_GROWL;
         }
         player.serverLevel().playSound(null,
                 player.getX(), player.getY(), player.getZ(),

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:cave",
+  "config": {
+    "probability": 0.3,
+    "y": {
+      "type": "minecraft:uniform",
+      "min_inclusive": { "absolute": -20 },
+      "max_inclusive": { "absolute": 40 }
+    },
+    "yScale": 0.6,
+    "lava_level": { "absolute": -55 },
+    "replaceable": "#minecraft:overworld_carver_replaceables",
+    "horizontal_radius_multiplier": 2.0,
+    "vertical_radius_multiplier": 1.5,
+    "floor_level": -0.3
+  }
+}

@@ -1,6 +1,7 @@
 package com.sentosaiyanaddon.dmz.mixin;
 
 import com.dragonminez.common.stats.character.Character;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

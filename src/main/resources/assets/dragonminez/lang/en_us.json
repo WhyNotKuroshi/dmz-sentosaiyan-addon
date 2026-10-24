@@ -44,6 +44,10 @@
   "race.dragonminez.sentosaiyan.form.legendaryforms.ssjfullpower": "SSJ Full Power",
   "race.dragonminez.sentosaiyan.form.legendaryforms.supersaiyan4": "SSJ 4",
 
+  "fluid.sentosaiyanaddon.hot_spring": "Hot Spring",
+  "block.sentosaiyanaddon.hot_spring_block": "Hot Spring",
+  "item.sentosaiyanaddon.hot_spring_bucket": "Hot Spring Bucket",
+
   "sentosaiyanaddon.command.reset_config.success": "[Sento] Configs reinstalled from %s. Leave and re-enter the world (or restart the game) to apply.",
   "sentosaiyanaddon.source.base": "DragonMine Z",
   "sentosaiyanaddon.source.revamp": "DragonMine Z Overhaul"

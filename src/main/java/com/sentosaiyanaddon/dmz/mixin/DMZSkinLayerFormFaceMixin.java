@@ -1,10 +1,15 @@
 package com.sentosaiyanaddon.dmz.mixin;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+
+import com.sentosaiyanaddon.dmz.util.SentoModelRegistry;
+
 import com.dragonminez.client.render.layer.DMZSkinLayer;
 import com.dragonminez.common.stats.character.Character;
+
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import com.mojang.blaze3d.vertex.PoseStack;
+
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,15 +26,15 @@ import java.lang.reflect.Method;
 public abstract class DMZSkinLayerFormFaceMixin {
 
     /*
-     * cor da borda ssj4 (RGB 0-1)
-     * equivalente ao hex #D11A11
+     * SSJ4 border color (RGB 0-1)
+     * equivalent to hex #D11A11
      */
     @Unique
     private static final float[] SENTO_SSJ4_EYE_BORDER_COLOR = new float[] { 0.82F, 0.10F, 0.07F };
 
     /*
-     * cor da borda ssj full power (RGB 0-1)
-     * branco #FFFFFF
+     * SSJ Full Power border color (RGB 0-1)
+     * white #FFFFFF
      */
     @Unique
     private static final float[] SENTO_SSJFP_EYE_BORDER_COLOR = new float[] { 1.0F, 1.0F, 1.0F };
@@ -76,7 +81,7 @@ public abstract class DMZSkinLayerFormFaceMixin {
 
     @ModifyVariable(method = "dispatchFaceRender", at = @At("HEAD"), argsOnly = true, ordinal = 0, remap = false)
     private String sentosaiyan$remapFaceKey(String faceKey) {
-        return com.sentosaiyanaddon.dmz.util.SentoModelRegistry.resolveFaceKey(faceKey);
+        return SentoModelRegistry.resolveFaceKey(faceKey);
     }
 
     @WrapOperation(method = "renderFace", at = @At(value = "INVOKE", target = "Lcom/dragonminez/common/stats/character/Character;getBodyType()I"), remap = false)
@@ -88,36 +93,36 @@ public abstract class DMZSkinLayerFormFaceMixin {
         return bodyType;
     }
 
-@Inject(method = "renderCustomFace", at = @At("TAIL"), remap = false)
-private void sentosaiyan$renderFormEyesBorder(
-        BakedGeoModel model, PoseStack poseStack, AbstractClientPlayer animatable,
-        MultiBufferSource bufferSource, Character character,
-        String faceKey, String race,
-        float[] eye1, float[] eye2, float[] skin, float[] hair,
-        float pt, int pl, int po, float alpha,
-        CallbackInfo ci) {
+    @Inject(method = "renderCustomFace", at = @At("TAIL"), remap = false)
+    private void sentosaiyan$renderFormEyesBorder(
+            BakedGeoModel model, PoseStack poseStack, AbstractClientPlayer animatable,
+            MultiBufferSource bufferSource, Character character,
+            String faceKey, String race,
+            float[] eye1, float[] eye2, float[] skin, float[] hair,
+            float pt, int pl, int po, float alpha,
+            CallbackInfo ci) {
 
-    if (!"sentosaiyan".equalsIgnoreCase(race))
-        return;
+        if (!"sentosaiyan".equalsIgnoreCase(race))
+            return;
 
-    // padrao: vermelho em todas as formas
-    float[] borderColor = SENTO_SSJ4_EYE_BORDER_COLOR;
+        // pattern: red in all forms
+        float[] borderColor = SENTO_SSJ4_EYE_BORDER_COLOR;
 
-    // excecao: branco no ssj full power
-    if (sentosaiyan$isSentoSSJFullpower(character)) {
-        borderColor = SENTO_SSJFP_EYE_BORDER_COLOR;
+        // exception: white on ssj full power
+        if (sentosaiyan$isSentoSSJFullpower(character)) {
+            borderColor = SENTO_SSJFP_EYE_BORDER_COLOR;
+        }
+
+        int eyesType = character.getEyesType();
+        String path = "textures/entity/races/sentosaiyan/faces/sentospecialform_eyes_" + eyesType + ".png";
+
+        sentosaiyan$callRenderColoredLayer(
+                model, poseStack, animatable, bufferSource,
+                path, borderColor,
+                pt, pl, po, alpha);
     }
 
-    int eyesType = character.getEyesType();
-    String path = "textures/entity/races/sentosaiyan/faces/sentospecialform_eyes_" + eyesType + ".png";
-
-    sentosaiyan$callRenderColoredLayer(
-            model, poseStack, animatable, bufferSource,
-            path, borderColor,
-            pt, pl, po, alpha);
-}
-
-    // verifica se e sento + ssj4
+    // check if it's Sento + SSJ4
     @Unique
     private static boolean sentosaiyan$isSentoSSJ4(Character character) {
         if (character == null)
@@ -132,7 +137,7 @@ private void sentosaiyan$renderFormEyesBorder(
         return lower.contains("supersaiyan4") || lower.contains("ssj4");
     }
 
-    // verifica se e sento + ssj full power
+    // check if i sit + ssj full power
     @Unique
     private static boolean sentosaiyan$isSentoSSJFullpower(Character character) {
         if (character == null)

@@ -39,6 +39,6 @@ public final class SentoModelRegistry {
     }
 
     private static ResourceLocation geo(String fileName) {
-        return new ResourceLocation("dragonminez", "geo/entity/races/" + fileName);
+        return ResourceLocation.fromNamespaceAndPath("dragonminez", "geo/entity/races/" + fileName);
     }
 }

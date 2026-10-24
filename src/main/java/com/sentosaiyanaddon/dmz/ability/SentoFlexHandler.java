@@ -1,10 +1,13 @@
 package com.sentosaiyanaddon.dmz.ability;
 
+import com.sentosaiyanaddon.dmz.config.SentoConfig;
+import com.sentosaiyanaddon.dmz.util.SentoUtils;
+
 import com.dragonminez.common.init.MainEffects;
 import com.dragonminez.common.stats.StatsCapability;
 import com.dragonminez.common.stats.StatsData;
 import com.dragonminez.common.stats.StatsProvider;
-import com.sentosaiyanaddon.dmz.config.SentoConfig;
+
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -12,6 +15,8 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -42,6 +47,11 @@ public final class SentoFlexHandler {
         }
     }
 
+    @SubscribeEvent
+    public static void onPlayerLogout(PlayerEvent.PlayerLoggedOutEvent event) {
+        ACTIVE_TICK.remove(event.getEntity().getUUID());
+    }
+
     public static void recoverFromHotSpring(ServerPlayer player) {
         StatsData data = StatsProvider.get(StatsCapability.INSTANCE, player).orElse(null);
         if (data != null) {
@@ -68,7 +78,7 @@ public final class SentoFlexHandler {
         if (data == null)
             return;
 
-        if (!isSento(player)) {
+        if (!SentoUtils.isSento(player)) {
             player.displayClientMessage(
                     Component.translatable("sentosaiyanaddon.ability.flex.not_sento"), true);
             return;
@@ -173,7 +183,7 @@ public final class SentoFlexHandler {
         player.addEffect(new MobEffectInstance(MainEffects.STUN.get(),
                 stunTicks, 0, false, false, true));
 
-        // KnockdownDuration NAO MEXE NESSE E NEM NO isKnockedDown PFV
+        // DO NOT TOUCH KnockdownDuration OR isKnockedDown, PLEASE.
         data.getCooldowns().setCooldown(CD_KNOCKDOWN, stunTicks);
         data.getStatus().setKnockedDown(true);
 
@@ -205,6 +215,12 @@ public final class SentoFlexHandler {
         if (!(event.player instanceof ServerPlayer player))
             return;
 
+        boolean hasFlex = player.hasEffect(SentoEffects.FLEX.get());
+        boolean hasStun = player.hasEffect(MainEffects.STUN.get());
+        if (!hasFlex && !hasStun && !ACTIVE_TICK.containsKey(player.getUUID())) {
+            return;
+        }
+
         CompoundTag nbt = player.getPersistentData();
         if (nbt.getBoolean(NBT_FLEX_KNOCKDOWN)) {
             if (!player.hasEffect(MainEffects.STUN.get())) {
@@ -229,7 +245,7 @@ public final class SentoFlexHandler {
         if (data == null)
             return;
 
-        // pra impedir de zoar o nível do cara quando o stat mudar
+        // to prevent messing up the guy's level when the stat changes
         if (tick % 20 == 0) {
             SentoFlexBonus.apply(player, data);
         }
@@ -261,7 +277,7 @@ public final class SentoFlexHandler {
     }
 
     @SubscribeEvent
-    public static void onWakeUp(net.minecraftforge.event.entity.player.PlayerWakeUpEvent event) {
+    public static void onWakeUp(PlayerWakeUpEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player))
             return;
         if (event.wakeImmediately() || event.updateLevel())
@@ -283,13 +299,5 @@ public final class SentoFlexHandler {
                 Component.translatable("sentosaiyanaddon.ability.flex.slept",
                         count - newCount),
                 false);
-    }
-
-    private static boolean isSento(ServerPlayer player) {
-        StatsData data = StatsProvider.get(StatsCapability.INSTANCE, player).orElse(null);
-        if (data == null || data.getCharacter() == null)
-            return false;
-        String race = data.getCharacter().getRaceName();
-        return race != null && "sentosaiyan".equalsIgnoreCase(race);
     }
 }

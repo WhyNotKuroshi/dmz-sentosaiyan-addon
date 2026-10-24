@@ -1,0 +1,12 @@
+{
+    "multipart": [
+        {
+            "apply": {
+                "model": "minecraft:block/water"
+            }
+        }
+    ],
+    "textures": {
+        "particle": "sentosaiyanaddon:block/hot_spring_still"
+    }
+}

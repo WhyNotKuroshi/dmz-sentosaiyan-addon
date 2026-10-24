@@ -1,6 +1,7 @@
 package com.sentosaiyanaddon.dmz.mixin;
 
 import com.llamalad7.mixinextras.MixinExtrasBootstrap;
+
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 import org.objectweb.asm.tree.ClassNode;

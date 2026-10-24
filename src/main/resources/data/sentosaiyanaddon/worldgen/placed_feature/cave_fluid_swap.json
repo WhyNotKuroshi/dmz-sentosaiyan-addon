@@ -1,0 +1,9 @@
+{
+  "feature": "sentosaiyanaddon:cave_fluid_swap",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 1
+    }
+  ]
+}

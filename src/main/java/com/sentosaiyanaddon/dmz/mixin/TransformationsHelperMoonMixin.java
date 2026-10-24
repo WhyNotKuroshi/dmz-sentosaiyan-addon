@@ -4,6 +4,7 @@ import com.dragonminez.common.config.FormConfig;
 import com.dragonminez.common.stats.StatsData;
 import com.dragonminez.common.stats.extras.ActionMode;
 import com.dragonminez.common.util.TransformationsHelper;
+
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class TransformationsHelperMoonMixin {
 
     private static final ResourceLocation SENTO_PLANET =
-            new ResourceLocation("sentosaiyanaddon", "sento_planet");
+            ResourceLocation.fromNamespaceAndPath("sentosaiyanaddon", "sento_planet");
 
     @Inject(method = "shouldAutoChargeOozaru", at = @At("RETURN"), cancellable = true, remap = false)
     private static void sentosaiyan$allowOozaruOnSento(Player player, StatsData statsData,
@@ -36,7 +37,7 @@ public class TransformationsHelperMoonMixin {
         FormConfig.FormData nextForm = TransformationsHelper.getNextAvailableForm(statsData);
         if (!TransformationsHelper.isOozaruForm(nextForm)) return;
 
-        // TODO: quando o sistema de stress existir, descomentar e usar como gatilho para forma
+        // TODO: Once the stress system is in place, uncomment this and use it as a trigger for the form
         // if (!SentoStressSystem.isAboveThreshold(player)) return;
         // cir.setReturnValue(true);
     }

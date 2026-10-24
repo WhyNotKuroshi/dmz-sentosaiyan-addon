@@ -33,16 +33,20 @@
   "race.dragonminez.sentosaiyan.form.supersento.supersaiyan2": "SSJ 2",
   "race.dragonminez.sentosaiyan.form.supersento.supersaiyan3": "SSJ 3",
   
-  "race.dragonminez.sentosaiyan.group.sentosaiyanoozaru": "Oozaru",
-  "race.dragonminez.sentosaiyan.form.sentosaiyanoozaru.oozaru": "Oozaru",
-  "race.dragonminez.sentosaiyan.form.sentosaiyanoozaru.goldenoozaru": "Oozaru Dourado",
+  "race.dragonminez.sentosaiyan.group.sentosaiyanoozaru": "Grande Macaco",
+  "race.dragonminez.sentosaiyan.form.sentosaiyanoozaru.oozaru": "Grande Macaco",
+  "race.dragonminez.sentosaiyan.form.sentosaiyanoozaru.goldenoozaru": "Grande Macaco Dourado",
   "race.dragonminez.sentosaiyan.form.sentosaiyanoozaru.supersaiyan4": "SSJ 4",
 
-  "race.dragonminez.sentosaiyan.group.legendaryforms": "Legendary Forms",
+  "race.dragonminez.sentosaiyan.group.legendaryforms": "Mutante",
   "race.dragonminez.sentosaiyan.form.legendaryforms.ikari": "Ikari",
   "race.dragonminez.sentosaiyan.form.legendaryforms.ssjhybrid": "SSJ Híbrido",
   "race.dragonminez.sentosaiyan.form.legendaryforms.ssjfullpower": "SSJ Poder Total",
   "race.dragonminez.sentosaiyan.form.legendaryforms.supersaiyan4": "SSJ 4",
+
+  "fluid.sentosaiyanaddon.hot_spring": "Águas termais",
+  "block.sentosaiyanaddon.hot_spring_block": "Águas termais",
+  "item.sentosaiyanaddon.hot_spring_bucket": "Balde de Água Termal",
 
   "mod.sentosaiyanaddon": "Saiyajin de Sento",
   "sentosaiyanaddon.command.reset_config.success": "[Sento] Configs reinstaladas a partir de: %s. Saia e reentre no mundo (ou reinicie o jogo) para aplicar.",

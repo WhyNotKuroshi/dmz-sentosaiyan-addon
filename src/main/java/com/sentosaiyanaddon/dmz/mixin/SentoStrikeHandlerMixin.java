@@ -1,13 +1,15 @@
 package com.sentosaiyanaddon.dmz.mixin;
 
+import com.sentosaiyanaddon.dmz.ability.SentoAbilities;
+import com.sentosaiyanaddon.dmz.ability.SentoFlexHandler;
+import com.sentosaiyanaddon.dmz.strike.SentoStrikeTemplates;
+
 import com.dragonminez.common.stats.StatsCapability;
 import com.dragonminez.common.stats.StatsProvider;
 import com.dragonminez.common.stats.techniques.StrikeAttackData;
 import com.dragonminez.common.stats.techniques.TechniqueData;
 import com.dragonminez.server.events.players.combat.StrikeAttackHandler;
-import com.sentosaiyanaddon.dmz.ability.SentoAbilities;
-import com.sentosaiyanaddon.dmz.ability.SentoFlexHandler;
-import com.sentosaiyanaddon.dmz.strike.SentoStrikeTemplates;
+
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -47,7 +49,7 @@ public class SentoStrikeHandlerMixin {
                     ci.cancel();
                 }
                 default -> {
-                    /*nao mexe.*/ }
+                    /*don't touch it.*/ }
             }
         });
     }

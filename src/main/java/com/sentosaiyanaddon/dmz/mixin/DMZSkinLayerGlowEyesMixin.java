@@ -1,10 +1,13 @@
 package com.sentosaiyanaddon.dmz.mixin;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+
 import com.dragonminez.client.render.layer.DMZSkinLayer;
 import com.dragonminez.common.stats.character.Character;
+
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import com.mojang.blaze3d.vertex.PoseStack;
+
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -50,7 +53,7 @@ public class DMZSkinLayerGlowEyesMixin {
         sentosaiyan$isSentoFace.set(Boolean.FALSE);
     }
 
-    // Pupila direita = segunda invocacao (ordinal = 1)
+    // Right pupil = second invocation (ordinal = 1)
     @WrapOperation(
         method = "renderCustomFace",
         at = @At(value = "INVOKE", target = SENTO_RENDER_COLORED_LAYER_DESC, ordinal = 1),
@@ -68,7 +71,7 @@ public class DMZSkinLayerGlowEyesMixin {
         original.call(instance, model, poseStack, animatable, bufferSource, path, rgb, pt, pl, po, alpha);
     }
 
-    // Pupila esquerda = terceira invocacao (ordinal = 2)
+    // Left pupil = third invocation (ordinal = 2)
     @WrapOperation(
         method = "renderCustomFace",
         at = @At(value = "INVOKE", target = SENTO_RENDER_COLORED_LAYER_DESC, ordinal = 2),

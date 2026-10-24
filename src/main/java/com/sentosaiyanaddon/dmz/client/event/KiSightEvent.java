@@ -1,10 +1,7 @@
 package com.sentosaiyanaddon.dmz.client.event;
 
-import com.dragonminez.common.stats.StatsCapability;
-import com.dragonminez.common.stats.StatsData;
-import com.dragonminez.common.stats.StatsProvider;
-import com.dragonminez.common.stats.character.Character;
-import com.dragonminez.common.stats.character.Effects;
+import com.sentosaiyanaddon.dmz.util.SentoUtils;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraftforge.api.distmarker.Dist;
@@ -31,21 +28,7 @@ public final class KiSightEvent {
         LocalPlayer player = mc.player;
         if (player == null) return;
 
-        StatsData data = StatsProvider.get(StatsCapability.INSTANCE, player).orElse(null);
-        if (data == null) return;
-
-        Character character = data.getCharacter();
-        if (character == null) return;
-
-        String raceName = character.getRaceName();
-        if (raceName == null) return;
-        if (!"sentosaiyan".equalsIgnoreCase(raceName)) return;
-
-        Effects effects = data.getEffects();
-        if (effects == null) return;
-        if (!effects.hasEffect("mutant")) return;
-
-        observerEligible = true;
+        observerEligible = SentoUtils.isSentoMutant(player);
     }
 
     public static boolean isObserverEligible() {

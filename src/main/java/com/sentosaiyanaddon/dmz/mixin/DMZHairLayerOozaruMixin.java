@@ -5,7 +5,7 @@ import com.dragonminez.common.stats.StatsCapability;
 import com.dragonminez.common.stats.StatsData;
 import com.dragonminez.common.stats.StatsProvider;
 import com.dragonminez.common.stats.character.Character;
-import com.mojang.blaze3d.vertex.PoseStack;
+
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.world.entity.Entity;
@@ -21,14 +21,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class DMZHairLayerOozaruMixin {
 
     @Inject(method = "renderHair", at = @At("HEAD"), cancellable = true, remap = false)
-    private void sentosaiyan$skipOozaruHair(PoseStack poseStack, AbstractClientPlayer animatable,
+    private void sentosaiyan$skipOozaruHair(AbstractClientPlayer animatable,
             MultiBufferSource bufferSource, float partialTick,
             int packedLight, int packedOverlay, CallbackInfo ci) {
         if (animatable == null)
             return;
         LazyOptional<StatsData> statsCap = StatsProvider.get(StatsCapability.INSTANCE, (Entity) animatable);
         StatsData stats = statsCap.orElse(new StatsData((Player) animatable));
-        if (ci.isCancelled()) return;
+        if (ci.isCancelled())
+            return;
         Character character = stats.getCharacter();
         if (character == null)
             return;

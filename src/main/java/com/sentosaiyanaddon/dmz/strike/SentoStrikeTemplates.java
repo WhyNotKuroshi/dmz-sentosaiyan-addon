@@ -1,8 +1,9 @@
 package com.sentosaiyanaddon.dmz.strike;
 
+import com.sentosaiyanaddon.dmz.config.SentoConfig;
+
 import com.dragonminez.common.stats.techniques.PredefinedTechniques;
 import com.dragonminez.common.stats.techniques.StrikeAttackData;
-import com.sentosaiyanaddon.dmz.config.SentoConfig;
 
 public final class SentoStrikeTemplates {
 
@@ -19,7 +20,7 @@ public final class SentoStrikeTemplates {
         sb.setName("technique.sentosaiyanaddon.sound_breaker");
         sb.setAuthor("Orran/Sheeri");
         sb.setDamageMultiplier(0.0F);
-        sb.setAnimationId("animation.technique.regeneration");
+        sb.setAnimationId("");
         sb.setDurationTicks(20);
         sb.applyConfigDefaults();
         sb.setCooldown(SentoConfig.SOUND_BREAKER_COOLDOWN_TICKS.get());
@@ -30,7 +31,7 @@ public final class SentoStrikeTemplates {
         tw.setName("technique.sentosaiyanaddon.trigger_wave");
         tw.setAuthor("Orran");
         tw.setDamageMultiplier(0.0F);
-        tw.setAnimationId("animation.technique.regeneration");
+        tw.setAnimationId("");
         tw.setDurationTicks(60);
         tw.applyConfigDefaults();
         tw.setCooldown(SentoConfig.TRIGGER_WAVE_COOLDOWN_TICKS.get());
@@ -41,7 +42,7 @@ public final class SentoStrikeTemplates {
         flex.setName("technique.sentosaiyanaddon.flex");
         flex.setAuthor("WhyNotKuroshi");
         flex.setDamageMultiplier(0.0F);
-        flex.setAnimationId("animation.technique.regeneration");
+        flex.setAnimationId("");
         flex.setDurationTicks(SentoConfig.FLEX_ACTIVE_WINDOW_TICKS.get());
         flex.applyConfigDefaults();
         flex.setCooldown(SentoConfig.FLEX_CLEAN_COOLDOWN_TICKS.get());

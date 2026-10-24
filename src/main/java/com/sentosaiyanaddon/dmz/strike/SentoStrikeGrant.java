@@ -6,9 +6,9 @@ import com.dragonminez.common.stats.StatsCapability;
 import com.dragonminez.common.stats.StatsData;
 import com.dragonminez.common.stats.StatsProvider;
 import com.dragonminez.common.stats.techniques.StrikeAttackData;
+
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -27,12 +27,8 @@ public final class SentoStrikeGrant {
     }
 
     @SubscribeEvent
-    public static void onTick(TickEvent.PlayerTickEvent event) {
-        if (event.phase != TickEvent.Phase.END)
-            return;
-        if (!(event.player instanceof ServerPlayer player))
-            return;
-        if (player.tickCount % 40 != 0)
+    public static void onRespawn(PlayerEvent.PlayerRespawnEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer player))
             return;
         updateStrikes(player);
     }
@@ -45,8 +41,8 @@ public final class SentoStrikeGrant {
             boolean sento = isSento(data);
             boolean mutant = data.getEffects() != null && data.getEffects().hasEffect("mutant");
 
-            // Todas as tres sao habilidades exclusivas da raca
-            // Trigger Wave e a unica habilidade que exige Mutant
+            // All three are race-exclusive abilities
+            // Trigger Wave is the only ability that requires Mutant
             updateStrike(player, data, SentoStrikeTemplates.SOUND_BREAKER_ID, sento);
             updateStrike(player, data, SentoStrikeTemplates.FLEX_ID, sento);
             updateStrike(player, data, SentoStrikeTemplates.TRIGGER_WAVE_ID, sento && mutant);
@@ -60,8 +56,10 @@ public final class SentoStrikeGrant {
         return race != null && "sentosaiyan".equalsIgnoreCase(race);
     }
 
-    // Grant/revoke. Se shouldHave e true e tem, entao nao adiciona
-    // Se shouldHave e false e tem, entao remove e se nao muda nada entao faz nada
+    // Grant/revoke. If 'shouldHave' is 'true' and it already exists, then do not
+    // add it.
+    // If 'shouldHave' is 'false' and it is present, then remove it; otherwise, if
+    // nothing changes, do nothing.
 
     private static void updateStrike(ServerPlayer player, StatsData data, String strikeId, boolean shouldHave) {
         boolean has = data.getTechniques().getUnlockedTechniques().containsKey(strikeId);

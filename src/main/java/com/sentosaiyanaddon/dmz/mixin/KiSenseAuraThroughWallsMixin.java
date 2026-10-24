@@ -1,8 +1,11 @@
 package com.sentosaiyanaddon.dmz.mixin;
 
-import com.dragonminez.client.render.effects.KiSenseAuraRenderer;
 import com.mojang.blaze3d.systems.RenderSystem;
+
 import com.sentosaiyanaddon.dmz.client.event.KiSightEvent;
+
+import com.dragonminez.client.render.effects.KiSenseAuraRenderer;
+
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.resources.ResourceLocation;
@@ -18,7 +21,7 @@ public abstract class KiSenseAuraThroughWallsMixin {
     private static void sentosaiyan$disableDepthForKiSense(
             RenderType type, ResourceLocation texture, ShaderInstance shader,
             CallbackInfo ci) {
-        // So atravessa parede se o observador for Sento + Mutant
+        // You only pass through walls if the observer is Sento + Mutant
         if (KiSightEvent.isObserverEligible()) {
             RenderSystem.disableDepthTest();
         }
@@ -27,7 +30,7 @@ public abstract class KiSenseAuraThroughWallsMixin {
     @Inject(method = "customClear", at = @At("HEAD"), remap = false)
     private static void sentosaiyan$restoreDepthAfterKiSense(
             RenderType type, CallbackInfo ci) {
-        // Sempre restaura, pra nao vazar estado se o observer mudar no meio
+        // It always restores [the state], to prevent state leakage if the observer changes midway through
         if (KiSightEvent.isObserverEligible()) {
             RenderSystem.enableDepthTest();
         }

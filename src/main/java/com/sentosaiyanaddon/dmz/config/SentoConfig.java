@@ -6,18 +6,18 @@ public final class SentoConfig {
 
     public static final ForgeConfigSpec SPEC;
 
-    // Habilidade Sound Breaker
+    // Sound Breaker Ability
     public static final ForgeConfigSpec.DoubleValue SOUND_BREAKER_RADIUS;
     public static final ForgeConfigSpec.IntValue SOUND_BREAKER_STUN_TICKS;
     public static final ForgeConfigSpec.IntValue SOUND_BREAKER_COOLDOWN_TICKS;
     public static final ForgeConfigSpec.DoubleValue SOUND_BREAKER_ENERGY_COST_PCT;
 
-    // Habilidade Trigger Wave
+    // Trigger Wave Ability
     public static final ForgeConfigSpec.DoubleValue TRIGGER_WAVE_RADIUS;
     public static final ForgeConfigSpec.IntValue TRIGGER_WAVE_COOLDOWN_TICKS;
     public static final ForgeConfigSpec.DoubleValue TRIGGER_WAVE_ENERGY_COST_PCT;
 
-    // As mecanicas mais importantes da habilidade Flex
+    // The most important mechanics of the Flex skill
     public static final ForgeConfigSpec.IntValue FLEX_ACTIVE_WINDOW_TICKS;
     public static final ForgeConfigSpec.IntValue FLEX_CLEAN_COOLDOWN_TICKS;
     public static final ForgeConfigSpec.IntValue FLEX_NUMBLOCK_COOLDOWN_TICKS;
@@ -29,17 +29,21 @@ public final class SentoConfig {
     public static final ForgeConfigSpec.IntValue FLEX_ABUSE_PER_LEVEL;
     public static final ForgeConfigSpec.IntValue FLEX_ABUSE_DECAY_TICKS;
 
-    // Flex recuperacao
+    // Flex recovery
     public static final ForgeConfigSpec.IntValue FLEX_HOT_SPRING_TICKS;
     public static final ForgeConfigSpec.IntValue FLEX_BED_SLEEP_RECOVERY;
 
-    // Flex atributos
+    // Flex attributes
     public static final ForgeConfigSpec.DoubleValue FLEX_ATTACK_BONUS;
     public static final ForgeConfigSpec.DoubleValue FLEX_SPEED_PENALTY;
     public static final ForgeConfigSpec.DoubleValue FLEX_KNOCKBACK_RESIST;
 
     // Race Installer
     public static final ForgeConfigSpec.BooleanValue RACE_INSTALLER_ENABLED;
+
+    // Hot Spring Healing
+    public static final ForgeConfigSpec.DoubleValue HOT_SPRING_HEAL_HP_PER_SECOND;
+    public static final ForgeConfigSpec.DoubleValue HOT_SPRING_HEAL_PERCENT_PER_SECOND;
 
     static {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
@@ -88,7 +92,7 @@ public final class SentoConfig {
 
         builder.pop();
 
-        // Flex — mecanicas principais
+        // Flex — core mechanics
         builder.comment(
                 "Flex — channels ki into the limbs, temporary buff.",
                 "Available to every Sento Saiyan.")
@@ -136,7 +140,7 @@ public final class SentoConfig {
                 .comment("Idle time (in ticks) before the abuse counter resets.")
                 .defineInRange("abuseDecayTicks", 1200, 100, 72000);
 
-        // Recuperacao (cama e futuramente outra opcao ai)
+        // Recovery (bed and hot springs)
         FLEX_HOT_SPRING_TICKS = builder
                 .comment("Time immersed in a hot spring for full recovery.",
                         "6000 = 300 seconds (5 minutes).")
@@ -149,7 +153,7 @@ public final class SentoConfig {
 
         builder.pop();
 
-        // Atributos do Flex
+        // Flex Attributes
         builder.comment(
                 "Attributes applied while Flex is active.",
                 "Note: changes require a game RESTART — values are frozen at effect registration time.")
@@ -169,7 +173,20 @@ public final class SentoConfig {
 
         builder.pop();
 
-        // Pra desativar ou ativar o Race Installer
+                // Hot Spring Healing
+        builder.comment("Configurações de cura da Hot Spring").push("hot_spring");
+        
+        HOT_SPRING_HEAL_HP_PER_SECOND = builder
+                .comment("Vida curada por segundo (1.0 = 1 coração e meio).")
+                .defineInRange("healHpPerSecond", 1.0D, 0.0D, 100.0D);
+                
+        HOT_SPRING_HEAL_PERCENT_PER_SECOND = builder
+                .comment("Porcentagem de Ki e Stamina curada por segundo (0.05 = 5%).")
+                .defineInRange("healPercentPerSecond", 0.05D, 0.0D, 1.0D);
+                
+        builder.pop();
+
+        // To disable or enable the Race Installer
         builder.comment(
                 "Automatic race-file installer.",
                 "Copies character/stats/forms JSON files to config/dragonminez/races/sentosaiyan/.",

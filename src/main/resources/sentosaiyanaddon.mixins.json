@@ -7,7 +7,6 @@
   "mixins": [
     "CharacterRenderLogicKeyMixin",
     "DMZHairLayerOozaruMixin",
-    "DMZPlayerModelMixin",
     "DMZSkinLayerFaceMixin",
     "DMZSkinLayerFormFaceMixin",
     "DMZSkinLayerGlowEyesMixin",
@@ -15,7 +14,8 @@
     "SentoStrikeHandlerMixin",
     "SkinGathererProviderMixin",
     "StatsDataFlexMixin",
-    "TransformationsHelperMoonMixin"
+    "TransformationsHelperMoonMixin",
+    "client.LevelRendererMoonMixin"
   ],
   "client": [
     "KiSenseAuraThroughWallsMixin"

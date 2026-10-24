@@ -1,18 +1,19 @@
 package com.sentosaiyanaddon.dmz.ability;
 
+import com.sentosaiyanaddon.dmz.config.SentoConfig;
+
 import com.dragonminez.common.network.NetworkHandler;
 import com.dragonminez.common.network.S2C.StatsSyncS2C;
 import com.dragonminez.common.stats.StatsData;
-import com.sentosaiyanaddon.dmz.config.SentoConfig;
+
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 
-/**
- * Espelha os bônus do Flex no sistema BonusStats do DMZ.
- * O StatsFlexMixin já multiplica o VALOR retornado por getStrength/Skp/Pwr.
+/* Mirrors Flex bonuses into the DMZ BonusStats system.
+ * StatsFlexMixin already multiplies the value returned by getStrength/Skp/Pwr.
  *
- * SÓ LEMBRANDO SEU BETINHA: chamar apply() ANTES de player.addEffect(FLEX), senão
- * getStrength() já retorna o valor buffado e a linha mostraria o dobro.
+ * JUST A REMINDER: call apply() BEFORE player.addEffect(FLEX); otherwise,
+ * getStrength() will return the already-buffed value, and the line will show double the amount.
  */
 public final class SentoFlexBonus {
 
@@ -48,7 +49,7 @@ public final class SentoFlexBonus {
 
     private static void add(StatsData data, String stat, int value) {
         if (value <= 0) return;
-        // remove antes pra não acumular se algo chamar apply() duas vezes
+        // Remove it beforehand to prevent accumulation if something calls apply() twice.
         data.getBonusStats().removeBonus(stat, BONUS_NAME);
         data.getBonusStats().addBonus(stat, BONUS_NAME, "+", value, true);
     }

@@ -1,8 +1,10 @@
 package com.sentosaiyanaddon.dmz.mixin;
 
-import com.dragonminez.common.stats.StatsData;
 import com.sentosaiyanaddon.dmz.ability.SentoEffects;
 import com.sentosaiyanaddon.dmz.config.SentoConfig;
+
+import com.dragonminez.common.stats.StatsData;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
