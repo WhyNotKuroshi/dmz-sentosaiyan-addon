@@ -6,8 +6,8 @@ import net.minecraft.world.phys.Vec3;
 
 public class SentoDimensionEffects extends DimensionSpecialEffects {
 
-    // null = sem brilho nenhum no nascer e no pôr do sol.
-    // Para uma cor própria, troque por RGB de 0 a 1, por exemplo: new float[] {0.3F, 0.8F, 0.7F}
+    // null = no brightness at all during sunrise and sunset.
+    // For a custom color, replace with RGB values ​​from 0 to 1; for example: new float[] {0.3F, 0.8F, 0.7F}
     private static final float[] SUNSET_RGB = null;
 
     private final float[] glow = new float[4];
@@ -27,7 +27,8 @@ public class SentoDimensionEffects extends DimensionSpecialEffects {
         return false;
     }
 
-    // O brilho do horizonte e o tom da névoa no pôr do sol saem daqui; o sky_color do bioma não toca nisso.
+    // The glow of the horizon and the hue of the mist at sunset originate here; the
+    // biome's `sky_color` does not affect this.
     @Override
     public float[] getSunriseColor(float timeOfDay, float partialTicks) {
         if (SUNSET_RGB == null) {

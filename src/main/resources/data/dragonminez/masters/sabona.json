@@ -1,0 +1,12 @@
+{
+  "name": "sabona",
+  "texture": "sentosaiyanaddon:textures/entity/sabona.png",
+  "forms": [],
+  "skills": [
+    {
+      "id": "sento_flex",
+      "tp_cost": 2000,
+      "requirements": {}
+    }
+  ]
+}

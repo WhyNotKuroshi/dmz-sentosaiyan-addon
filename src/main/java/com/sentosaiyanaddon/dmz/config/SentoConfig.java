@@ -173,7 +173,7 @@ public final class SentoConfig {
 
         builder.pop();
 
-                // Hot Spring Healing
+        // Hot Spring Healing
         builder.comment("Configurações de cura da Hot Spring").push("hot_spring");
         
         HOT_SPRING_HEAL_HP_PER_SECOND = builder

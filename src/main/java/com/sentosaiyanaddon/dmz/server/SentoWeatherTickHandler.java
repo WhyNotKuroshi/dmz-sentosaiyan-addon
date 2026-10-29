@@ -24,7 +24,6 @@ public final class SentoWeatherTickHandler {
         ServerLevel level = server.getLevel(SentoWeatherState.SENTO_KEY);
         if (level == null) return;
 
-        // Ciclo aleatório de chuva
         if (--SentoWeatherState.weatherTimer <= 0) {
             boolean startRain = !SentoWeatherState.raining;
             SentoWeatherState.raining = startRain;

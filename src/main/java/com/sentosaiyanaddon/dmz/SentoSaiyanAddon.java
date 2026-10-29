@@ -5,11 +5,15 @@ import com.mojang.logging.LogUtils;
 import com.sentosaiyanaddon.dmz.ability.SentoEffects;
 import com.sentosaiyanaddon.dmz.block.SentoFluids;
 import com.sentosaiyanaddon.dmz.config.SentoConfig;
+import com.sentosaiyanaddon.dmz.init.entities.MasterSabonEntity;
+import com.sentosaiyanaddon.dmz.init.entities.MasterSabonaEntity;
 import com.sentosaiyanaddon.dmz.strike.SentoStrikeTemplates;
 import com.sentosaiyanaddon.dmz.worldgen.ReplaceFluidFeature;
 import com.sentosaiyanaddon.dmz.item.SentoItems;
 
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -31,6 +35,18 @@ public class SentoSaiyanAddon {
                         MOD_ID);
         public static final RegistryObject<ReplaceFluidFeature> REPLACE_FLUID = FEATURES.register("replace_fluid",
                         ReplaceFluidFeature::new);
+        public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister
+                        .create(ForgeRegistries.ENTITY_TYPES, MOD_ID);
+
+        public static final RegistryObject<EntityType<MasterSabonaEntity>> SABONA = ENTITIES.register("sabona",
+                        () -> EntityType.Builder.of(MasterSabonaEntity::new, MobCategory.CREATURE)
+                                        .sized(0.6F, 1.8F) //
+                                        .build("sabona"));
+
+        public static final RegistryObject<EntityType<MasterSabonEntity>> SABON = ENTITIES.register("sabon",
+                        () -> EntityType.Builder.of(MasterSabonEntity::new, MobCategory.CREATURE)
+                                        .sized(0.6F, 1.8F) //
+                                        .build("sabon"));
 
         public SentoSaiyanAddon() {
                 IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -40,20 +56,21 @@ public class SentoSaiyanAddon {
                 SentoFluids.BLOCKS.register(bus);
                 SentoItems.ITEMS.register(bus);
                 FEATURES.register(bus);
+                ENTITIES.register(bus);
 
                 LOGGER.info("[Sento] DragonMineZ: Sento Saiyan Race booting");
-                LOGGER.info("[Sento] DMZ version: {}",
-                                ModList.get().getModContainerById("dragonminez")
-                                                .map(c -> c.getModInfo().getVersion().toString())
-                                                .orElse("NOT LOADED — check your mods folder"));
-                LOGGER.info("[Sento] Revamp detected: {}",
-                                ModList.get().isLoaded("dmzrevamp") ? "yes" : "no");
-                LOGGER.info("[Sento] Race installer source: {}",
-                                RaceInstaller.desiredSource());
                 LOGGER.info("[Sento] Addon version: {}",
                                 ModList.get().getModContainerById("sentosaiyanaddon")
                                                 .map(c -> c.getModInfo().getVersion().toString())
                                                 .orElse("?"));
+                LOGGER.info("[Sento] DMZ version: {}",
+                                ModList.get().getModContainerById("dragonminez")
+                                                .map(c -> c.getModInfo().getVersion().toString())
+                                                .orElse("NOT LOADED — check your mods folder"));
+                LOGGER.info("[Sento] Overhaul detected: {}",
+                                ModList.get().isLoaded("dmzrevamp") ? "yes" : "no");
+                LOGGER.info("[Sento] Race installer source: {}",
+                                RaceInstaller.desiredSource());
 
                 LOGGER.info("[Sento] Oculus detected: {}",
                                 ModList.get().isLoaded("oculus") ? "yes — polygon offset active" : "no");

@@ -48,6 +48,11 @@
   "block.sentosaiyanaddon.hot_spring_block": "Hot Spring",
   "item.sentosaiyanaddon.hot_spring_bucket": "Hot Spring Bucket",
 
+  "dialogue.sento.sabona.greeting": "Hey! I’m Sabona! We don’t usually get visitors here—want to train?",
+  "dialogue.sento.quests": "",
+  "dialogue.sento.train": "What do you have to teach me?",
+  "dialogue.sento.leave": "Until next time!",
+
   "sentosaiyanaddon.command.reset_config.success": "[Sento] Configs reinstalled from %s. Leave and re-enter the world (or restart the game) to apply.",
   "sentosaiyanaddon.source.base": "DragonMine Z",
   "sentosaiyanaddon.source.revamp": "DragonMine Z Overhaul"

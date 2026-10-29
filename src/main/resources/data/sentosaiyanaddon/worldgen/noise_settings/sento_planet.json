@@ -729,7 +729,9 @@
                             "if_true": {
                                 "type": "minecraft:biome",
                                 "biome_is": [
-                                    "sentosaiyanaddon:sento_wildness"
+                                    "sentosaiyanaddon:sento_wildness",
+                                    "sentosaiyanaddon:sento_wildness_plains",
+                                    "sentosaiyanaddon:sento_bamboo_grove"
                                 ]
                             },
                             "then_run": {
@@ -740,7 +742,9 @@
                                         "if_true": {
                                             "type": "minecraft:biome",
                                             "biome_is": [
-                                                "sentosaiyanaddon:sento_wildness"
+                                                "sentosaiyanaddon:sento_wildness",
+                                                "sentosaiyanaddon:sento_wildness_plains",
+                                                "sentosaiyanaddon:sento_bamboo_grove"
                                             ]
                                         },
                                         "then_run": {

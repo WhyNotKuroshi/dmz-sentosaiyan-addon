@@ -27,7 +27,6 @@ public class TransformationsHelperMoonMixin {
         if (statsData.getCharacter() == null) return;
         if (!"sentosaiyan".equalsIgnoreCase(statsData.getCharacter().getRaceName())) return;
 
-        // sp age no planeta sento
         if (!player.level().dimension().location().equals(SENTO_PLANET)) return;
 
         if (statsData.getStatus().getSelectedAction() != ActionMode.FORM) return;

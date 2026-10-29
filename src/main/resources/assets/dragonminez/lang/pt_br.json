@@ -48,6 +48,11 @@
   "block.sentosaiyanaddon.hot_spring_block": "Águas termais",
   "item.sentosaiyanaddon.hot_spring_bucket": "Balde de Água Termal",
 
+  "dialogue.sento.sabona.greeting": "Eae! Sou Sabona! Não costumamos receber visitas aqui, quer treinar?",
+  "dialogue.sento.quests": "",
+  "dialogue.sento.train": "O que você tem para me ensinar?",
+  "dialogue.sento.leave": "Até a próxima!",
+
   "mod.sentosaiyanaddon": "Saiyajin de Sento",
   "sentosaiyanaddon.command.reset_config.success": "[Sento] Configs reinstaladas a partir de: %s. Saia e reentre no mundo (ou reinicie o jogo) para aplicar.",
   "sentosaiyanaddon.source.base": "DragonMine Z",

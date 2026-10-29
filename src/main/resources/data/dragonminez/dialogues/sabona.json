@@ -1,0 +1,42 @@
+{
+  "npc_id": "sabona",
+  "start_node": "greeting",
+  "nodes": {
+    "greeting": {
+      "id": "greeting",
+      "line": "dialogue.sento.sabona.greeting",
+      "choices": [
+        {
+          "text": "dialogue.sento.quests",
+          "goto_node": "",
+          "conditions": {},
+          "actions": [
+            {
+              "type": "OPEN_QUESTS"
+            }
+          ]
+        },
+        {
+          "text": "dialogue.sento.train",
+          "goto_node": "",
+          "conditions": {},
+          "actions": [
+            {
+              "type": "OPEN_TRAINING"
+            }
+          ]
+        },
+        {
+          "text": "dialogue.sento.leave",
+          "goto_node": "",
+          "conditions": {},
+          "actions": [
+            {
+              "type": "CLOSE"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

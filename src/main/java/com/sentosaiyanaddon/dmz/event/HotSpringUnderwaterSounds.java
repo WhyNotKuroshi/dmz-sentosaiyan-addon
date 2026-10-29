@@ -50,7 +50,6 @@ public class HotSpringUnderwaterSounds {
         boolean inHotSpring = isEyeInHotSpring(mc.level, player);
         boolean vanillaHandles = player.isUnderWater();
 
-        // Transição real da cabeça: entrou ou saiu da hot spring.
         if (inHotSpring != wasInHotSpring) {
             wasInHotSpring = inHotSpring;
             long now = mc.level.getGameTime();

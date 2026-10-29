@@ -11,11 +11,12 @@
     "DMZSkinLayerFormFaceMixin",
     "DMZSkinLayerGlowEyesMixin",
     "DMZSkinLayerHairMixin",
+    "SentoOozaruSkinGathererMixin",
     "SentoStrikeHandlerMixin",
-    "SkinGathererProviderMixin",
     "StatsDataFlexMixin",
     "TransformationsHelperMoonMixin",
-    "client.LevelRendererMoonMixin"
+    "client.LevelRendererMoonMixin",
+    "client.SentoRampageInputMixin"
   ],
   "client": [
     "KiSenseAuraThroughWallsMixin"
